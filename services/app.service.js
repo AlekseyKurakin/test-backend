@@ -33,8 +33,7 @@ class AppService {
         await AppService.insertDataInDB(data);
     }
 
-    static parseFile(file) {
-        // const lines = file.buffer.toString('utf-8').split('\n'); if file comes from api
+    static parseFile() {
         const lines = fs.readFileSync('dump.txt', 'utf-8').split('\n');
         let pointer;
         let employeeId = 0;

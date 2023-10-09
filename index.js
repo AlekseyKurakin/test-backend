@@ -8,9 +8,7 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.post('/api/top-exchangers', upload.single('dump'), async (req, res) => {
-    // const file = req.file;
-    // await AppService.parseAndInsert(file);
+app.post('/api/top-exchangers', async (req, res) => {
     const response = await AppService.getRewards();
     res.json(response);
 });
