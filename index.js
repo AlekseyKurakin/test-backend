@@ -8,7 +8,7 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.get('/api/top-exchangers', async (req, res) => {
+app.get('/api/users-rewards', async (req, res) => {
     const response = await AppService.getRewards();
     res.json(response);
 });
