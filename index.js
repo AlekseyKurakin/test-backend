@@ -18,7 +18,7 @@ app.post('/api/top-exchangers', upload.single('file'), async (req, res) => {
     res.json(response);
 });
 
-sequelize.sync({ force: true }) // set to false if you dont want to recreate DB everytime
+sequelize.sync({ force: false }) // set to false if you dont want to recreate DB everytime
     .then(() => {
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
