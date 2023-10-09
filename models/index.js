@@ -2,10 +2,11 @@ const sequelize = require('../sequelize');
 
 const models = {};
 
-models.ExchangeOffices = require('./ExchangeOffices')
+models.Employees = require('./Employees')
+models.Statements = require('./Statements')
+models.Donations = require('./Donations')
+models.Departments = require('./Departments')
 models.Rates = require('./Rates')
-models.Exchanges = require('./Exchanges')
-models.Countries = require('./Countries')
 
 const modelNames = Object.keys(models);
 
@@ -24,9 +25,10 @@ for (const modelName of modelNames) {
 }
 
 module.exports = {
-    ExchangeOffices: models.ExchangeOffices,
-    Rates: models.Rates,
-    Exchanges: models.Exchanges,
-    Countries: models.Countries
+    Employees: models.Employees,
+    Statements: models.Statements,
+    Donations: models.Donations,
+    Departments: models.Departments,
+    Rates: models.Rates
 }
 

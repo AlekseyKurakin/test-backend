@@ -1,29 +1,29 @@
 const {Model, DataTypes} = require("sequelize");
 
-class Rates extends Model {
+class Statements extends Model {
     static init(sequelize) {
         return super.init(
             {
+                amount: {
+                    type: DataTypes.FLOAT,
+                    field: 'amount'
+                },
                 date: {
                     type: DataTypes.DATE,
                     field: 'date'
                 },
-                sign: {
-                    type: DataTypes.STRING,
-                    field: 'sign'
-                },
-                value: {
-                    type: DataTypes.FLOAT,
-                    field: 'value'
+                employee_id: {
+                    type: DataTypes.INTEGER,
+                    field: 'employee_id'
                 },
             },
             {
                 sequelize,
-                tableName: 'rates',
+                tableName: 'statements',
                 underscored: true
             }
         )
-    }
+    };
 }
 
-module.exports = Rates;
+module.exports = Statements;

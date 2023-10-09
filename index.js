@@ -1,6 +1,4 @@
-const fs = require('fs');
 const sequelize = require('./sequelize');
-const { ExchangeOffices, Exchanges, Rates, Countries } = require('./models')
 const AppService = require('./services/app.service');
 const express = require('express');
 const app = express();
@@ -10,18 +8,18 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.post('/api/top-exchangers', upload.single('file'), async (req, res) => {
-    const file = req.file;
-    const data =  AppService.parseFile(file);
-    await AppService.insertData(data);
-    const response = await AppService.getTopExchangers();
+app.post('/api/top-exchangers', upload.single('dump'), async (req, res) => {
+    // const file = req.file;
+    // await AppService.parseAndInsert(file);
+    const response = await AppService.getRewards();
     res.json(response);
 });
 
-sequelize.sync({ force: false }) // set to false if you dont want to recreate DB everytime
+sequelize.sync({ force: true }) // set to false if you dont want to recreate DB everytime
     .then(() => {
-        app.listen(port, () => {
+        app.listen(port, async () => {
             console.log(`Server is running on port ${port}`);
+            await AppService.parseAndInsert();
         });
     })
     .catch((error) => {

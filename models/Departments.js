@@ -1,13 +1,9 @@
-const {Model, DataTypes} = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
-class Countries extends Model {
+class Departments extends Model {
     static init(sequelize) {
         return super.init(
             {
-                code: {
-                    type: DataTypes.STRING,
-                    field: 'code'
-                },
                 name: {
                     type: DataTypes.STRING,
                     field: 'name'
@@ -15,11 +11,11 @@ class Countries extends Model {
             },
             {
                 sequelize,
-                tableName: 'countries',
+                tableName: 'departments',
                 underscored: true
             }
         )
     }
 }
 
-module.exports = Countries;
+module.exports = Departments;

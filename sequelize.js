@@ -10,6 +10,9 @@ sequelize = new Sequelize({
     username: 'postgres',
     password: 'admin',
     database: 'postgres',
+    define: {
+        timestamps: false
+    }
 })
 
 module.exports = sequelize;
