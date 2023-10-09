@@ -10,6 +10,7 @@ sequelize = new Sequelize({
     username: 'postgres',
     password: 'admin',
     database: 'postgres',
+    logging: false,
     define: {
         timestamps: false
     }
